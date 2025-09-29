@@ -27,7 +27,8 @@ quizconnect/
 ├── apps/
 │   ├── mobile/      # Application Expo (React Native)
 │   ├── api/         # API NestJS
-│   └── admin/       # Interface d'administration Next.js
+│   ├── admin/       # Interface d'administration Next.js
+│   └── web/         # Site vitrine Next.js
 ├── packages/
 │   ├── shared/      # Types et utilitaires partagés
 │   ├── ui/          # Composants UI partagés
@@ -39,20 +40,28 @@ quizconnect/
 
 ### Prérequis
 - Node.js 18+
-- React Native CLI
+- pnpm (package manager)
+- Expo CLI
 - Android Studio / Xcode
-- PostgreSQL
 
-### Backend
+### Installation Globale
 ```bash
-cd backend
+# Installer toutes les dépendances
 pnpm install
-pnpm run start:dev
+
+# Démarrer l'app mobile
+pnpm dev:mobile
+
+# Démarrer l'API
+pnpm dev:api
+
+# Démarrer l'admin
+pnpm dev:admin
 ```
 
-### Mobile
+### Mobile App
 ```bash
-cd mobile
+cd apps/mobile
 pnpm install
 npx expo start
 ```
@@ -61,3 +70,9 @@ npx expo start
 - **Phase 1 (MVP)** : Application mobile avec mode solo et multijoueur
 - **Phase 2** : Mode Ligue et tournois, Back-office complet
 - **Phase 3** : Options premium et fonctionnalités avancées
+
+## Contributing
+Voir [ISSUES.md](./ISSUES.md) pour la roadmap détaillée et les tâches à faire.
+
+## License
+MIT License - Voir [LICENSE](./LICENSE) pour plus de détails.
