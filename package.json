@@ -1,0 +1,61 @@
+{
+  "name": "quizconnect",
+  "version": "1.0.0",
+  "description": "Application interactive de quiz avec intégration vidéo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:watch": "turbo run test:watch",
+    "test:coverage": "turbo run test:coverage",
+    "test:e2e": "turbo run test:e2e",
+    "clean": "turbo run clean",
+    "type-check": "turbo run type-check",
+    "dev:mobile": "turbo run dev --filter=mobile",
+    "dev:api": "turbo run dev --filter=api",
+    "dev:admin": "turbo run dev --filter=admin",
+    "start:mobile": "cd apps/mobile && npx expo start",
+    "start:api": "cd apps/api && npm run start:dev",
+    "prepare": "husky",
+    "check": "pnpm lint && pnpm type-check && pnpm test",
+    "prepush": "pnpm test:coverage && pnpm test:e2e",
+    "analyze": "turbo run analyze",
+    "security": "turbo run security"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "turbo": "^1.10.0",
+    "typescript": "^5.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
+    "eslint": "^9.0.0",
+    "prettier": "^3.6.2",
+    "@playwright/test": "^1.53.2",
+    "vitest": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/user-event": "^14.6.1",
+    "jsdom": "^26.1.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.0.0"
+}
